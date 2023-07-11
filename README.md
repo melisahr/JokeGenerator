@@ -3,8 +3,8 @@
 # Overview:
 
 A joke generator was made by following along to an Udemy video. It can generate a joke whenever the user clicks on the button.
-It contains a async-await function and a simple fetch API.
-
+It contains a async-await function and a simple fetch API. I added a SpeechSynthesisUtterance that will read the joke when
+the user clicks on the audio button. 
 
 
 # API: 
