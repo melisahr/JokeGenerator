@@ -1,7 +1,8 @@
 //https://icanhazdadjoke.com/api
 
-const jokeBtn = document.querySelector('button');
+const jokeBtn = document.querySelector('.submit');
 const joke = document.querySelector('.content');
+const soundBtn = document.querySelector('.volume');
 
 jokeBtn.addEventListener('click', getJoke)
 
@@ -17,3 +18,8 @@ async function getJoke(){
     //console.log(responseData);
     joke.innerText = responseData.joke;
 }
+
+soundBtn.addEventListener('click',()=>{
+    let utterance = new SpeechSynthesisUtterance(`${joke.innerText}`);
+    speechSynthesis.speak(utterance);
+});
