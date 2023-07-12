@@ -29,8 +29,8 @@ header{
 }
 .container{
     background-color: #f58872;
-    height: 360px;
-    width: 600px;
+    height: 400px;
+    width: 700px;
     padding: 3rem;
 
     display: flex;
@@ -52,32 +52,63 @@ header{
 .submit{
     padding: 0.5rem 1.2rem;
     outline: none;
-    background: #ee6f57;
-    border: 2px solid white;
-    border-radius: 1rem;
+    background: #018749;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
     cursor: pointer;
     font-size: 1rem;
     transition: all 0.25s ease-in-out;
 }
 .submit:hover{
-    background-color: #fff;
-    color: #ee6f57;
+    color: #000;
+    background-color: #ACE1AF;
+}
+.copy{
+    transform: translate(282px,37px);
+    cursor: pointer;
 }
 .volume{
-   width: 50px;
-   height: 50px;
+   width: 60px;
+   height: 60px;
    background-color: #f58872;
    border: none;
    outline: none;
    cursor: pointer;
    background-color: #fff;
    border-radius: 5rem;
-   margin-top: 1rem;
+   transform: translateY(30%);
 }
-.volume img{
+.volume img, 
+.copy img{
     height: 20px;
  }
-.volume:hover{
-    background-color: #5ad414;
-    border: 2px solid black;
+ .volume:hover, 
+ .copy:active{
+    background-color: #0CAFFF;
+ }
+.copy:before{
+    content: "Copied";
+    position: absolute;
+    top: -40px;
+    right: 0px;
+    background: #0CAFFF;
+    padding: 5px;
+    border-radius: .5rem;
+    display: none;
+} 
+.copy:after{
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 25px;
+    width: 10px;
+    height: 10px;
+    background: #0CAFFF;
+    transform: rotate(45deg);
+    display: none;
+}
+.copy.active:before,
+.copy.active:after{
+    display: block;
 }
