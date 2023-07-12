@@ -3,6 +3,7 @@
 const jokeBtn = document.querySelector('.submit');
 const joke = document.querySelector('.content');
 const soundBtn = document.querySelector('.volume');
+const copyBtn =document.querySelector('.copy');
 
 jokeBtn.addEventListener('click', getJoke)
 
@@ -23,3 +24,11 @@ soundBtn.addEventListener('click',()=>{
     let utterance = new SpeechSynthesisUtterance(`${joke.innerText}`);
     speechSynthesis.speak(utterance);
 });
+
+copyBtn.addEventListener('click', ()=>{
+    navigator.clipboard.writeText(joke.innerText);
+    copyBtn.classList.add("active");
+    setTimeout(function(){
+        copyBtn.classList.remove("active");
+    },1200);
+})
