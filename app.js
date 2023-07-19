@@ -4,6 +4,9 @@ const jokeBtn = document.querySelector('.submit');
 const joke = document.querySelector('.content');
 const soundBtn = document.querySelector('.volume');
 const copyBtn =document.querySelector('.copy');
+const body = document.querySelector('body'),
+    container = document.querySelector('.container'),
+    btnSwitch = document.querySelector('.toggle');
 
 jokeBtn.addEventListener('click', getJoke)
 
@@ -31,4 +34,25 @@ copyBtn.addEventListener('click', ()=>{
     setTimeout(function(){
         copyBtn.classList.remove("active");
     },1200);
-})
+});
+
+let getMode = localStorage.getItem('mode');
+if(getMode && getMode === 'dark'){
+    body.classList.add('dark');
+    btnSwitch.classList.add('active');
+}
+//console.log(getMode);
+
+btnSwitch.addEventListener('click', () => {
+   body.classList.toggle('dark'),
+   container.classList.toggle('dark');
+   
+   if(!body.classList.contains('dark')){
+        return localStorage.setItem('mode','light');
+   }
+   localStorage.setItem('mode','dark');
+});
+
+btnSwitch.addEventListener('click', () =>
+   btnSwitch.classList.toggle('active'));
+
